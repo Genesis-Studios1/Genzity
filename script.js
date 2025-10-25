@@ -23,7 +23,7 @@ document.querySelectorAll('.scroll-reveal').forEach(el => {
 });
 
 // Smooth scrolling for navigation links
-document.querySelectorAll('nav a').forEach(anchor => {
+document.querySelectorAll('.sidebar a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
@@ -33,5 +33,17 @@ document.querySelectorAll('nav a').forEach(anchor => {
                 block: 'start'
             });
         }
+        // Close sidebar after click
+        document.getElementById("sidebar").style.width = "0";
     });
+});
+
+// Toggle sidebar on button click
+document.getElementById("menu-button").addEventListener("click", function() {
+    var sidebar = document.getElementById("sidebar");
+    if (sidebar.style.width === "250px") {
+        sidebar.style.width = "0";
+    } else {
+        sidebar.style.width = "250px";
+    }
 });
